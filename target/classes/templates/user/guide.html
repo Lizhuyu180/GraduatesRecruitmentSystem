@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>就业指导</title>
+    <link rel="stylesheet" th:href="@{/sources/css/bootstrap.min.css}"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script th:src="@{/sources/js/jquery.js}"></script>
+    <script th:src="@{/sources/js/popper.min.js}"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/sources/css/bootstrap.css}"/>
+    <script th:src="@{/sources/js/bootstrap.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/sources/css/base.css}"/>
+    <link rel="stylesheet" th:href="@{/sources/css/user-center.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/sources/icon/iconfont.css}"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/sources/css/index.css}"/>
+
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+
+        <div class="container row" id="header-vue-bind-div">
+            <a class="logo"></a>
+            <ul class="nav col-lg-8" style="text-align: center">
+                <li class="nav_li current"><a class="nav_item" th:href="@{/toIndex}">首页</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/position/searchList}">职位搜索</a></li>
+                <!--                <li class="nav_li"><a class="nav_item" th:href="@{/toNews/news}">就业新闻</a></li>-->
+                <li class="nav_li"><a class="nav_item" th:href="@{/company/searchList}">公司搜索</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/user/toEditResume}">个人信息</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/post/posts}">求职经验</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/logout}">退出</a></li>
+            </ul>
+
+        </div>
+        <!--script-->
+        <script>
+            var header = new Vue({
+                el: '#header-vue-bind-div',
+                data: {
+                    type: null,
+                    person: {
+                        user: null,
+                        hr: null
+                    }
+
+                }
+            });
+        </script>
+    </div>
+
+    <hr/>
+
+
+    <div class="main container" id="vue-dom">
+        <div class="page-header row">
+            <h2 class="col-lg-6 ">冬季避霾招聘专场
+
+            </h2>
+        </div>
+
+
+        <div>
+            <p>发布单位：腾讯新闻</p>
+            <p>发布时间：2022-04-09</p>
+        </div>
+
+
+    </div>
+    <div>
+        <p style="text-align:left; width: 900px; margin: 0 auto">
+            一、善用天眼查、企查查等企业信息查询工具
+
+            利用天眼查这类工具，搜索求职公司实际登记在案的背景信息，对普通求职者来说不需要弄个会员来完全摸清公司背景，关注几个部分了解一些基本信息作为参考即可。
+            以某锤为例，实缴资本是公司现实拥有的资本，可以了解公司的资金情况，不过一般只有大公司才会显示自己的实缴资本，中小公司一般都不会有，那么只能参考下注册资本。虽然注册资本并不能完全代表一家公司的资金实力，但是注册资金如果只有寥寥几万、十几万，这类公司基本都是规模小、人数少，这时候要敲响第一个警钟了。
+            经营范围，这一块可以跟求职公司的官网或者公众号上面有关公司的业务介绍作对比，假如公司自家宣称的主营业务和他们登记在案的经营范围并不相符，那么这种公司的业务十有八九都是坑，这要响起第二个警钟。
+            而风险这一块，直接就反映公司的营业现状，有风险预警要敲响第三个警钟了，而当风险告警达到上百条以上可以直接PASS掉。
+
+
+        </p>
+        <br>
+
+        <p style="text-align:left; width: 900px; margin: 0 auto">
+            二、善用各类信息搜索工具
+
+            用百度等搜索引擎搜索关键词，可以了解有关公司的媒体报道。有负面新闻的公司就不要去面试了，而如果是正面报道绝大可能是公司买的软文（公司买软文不一定是业务有起色，还有可能是为了有证据更好忽悠外界）。
+            收集信息其实不局限在上面说的几个平台工具，现在互联网十分发达，只要肯动脑动手，都能从不同渠道获得信息。当然，如果你要面试的公司只是十来人甚至几个人的公司，有可能连自己官网、公众号都没有，导致信息都搜不到，这时候要考虑下这样的小公司自己值不值得去。
+        </p>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/>
+    <div style="text-align:left; width: 900px; margin: 0 auto">
+    <a  th:href="@{/sources/file/求职避坑指南.docx}" download>附件：求职避坑指南.docx</a>
+    </div>
+
+
+
+
+
+</div>
+<script th:src="@{/sources/js/user_info.js}"></script>
+</div>
+</body>
+</html>

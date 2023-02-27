@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>职位信息</title>
+    <link rel="stylesheet" th:href="@{/sources/css/bootstrap.min.css}"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/sources/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/sources/css/base.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/sources/icon/iconfont.css}">
+    <link rel="stylesheet" th:href="@{/sources/css/job_details.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/sources/layer/css/layui.css}"/>
+    <link th:href="@{/sources/css/star-rating.css}" media="all" rel="stylesheet" type="text/css"/>
+
+    <script th:src="@{/sources/js/jquery.js}"></script>
+    <script th:src="@{/sources/js/popper.min.js}"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+    <script th:src="@{/sources/js/bootstrap.js}"></script>
+    <script th:src="@{/sources/layer/layui.js}"></script>
+    <script th:src="@{/sources/js/star-rating.js}" type="text/javascript"></script>
+</head>
+<style>
+    textarea {
+        resize: none;
+        border: 1px solid #c0f2ff;
+    }
+    .board #ul2 {
+        background-color: #c0ebff;
+        margin-top: 2px;
+        width: 630px;
+        height: auto;
+        line-height: 30px;
+        color: #1a8fc9;
+    }
+    .show1 {
+        width: 600px;
+        margin: 20px auto;
+    }
+
+
+    p {
+        font-size: 15px;
+        margin-top: 0px;
+        float: left;
+    }
+
+    button {
+        width: 50px;
+        height: 30px
+    }
+
+    li a {
+        float: right;
+        color: #1a8fc9;
+    }
+</style>
+<body>
+<div class="wrap">
+    <div class="header">
+
+        <div class="container row" id="header-vue-bind-div">
+            <a class="logo"></a>
+            <ul class="nav col-lg-8" style="text-align: center">
+                <!--<li class="address">全国</li>-->
+                <li class="nav_li current"><a class="nav_item" th:href="@{/toIndex}">首页</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/position/searchList}">职位搜索</a></li>
+                <!--                <li class="nav_li"><a class="nav_item" th:href="@{/toNews/news}">就业新闻</a></li>-->
+                <li class="nav_li"><a class="nav_item" th:href="@{/company/searchList}">公司搜索</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/user/toEditResume}">个人信息</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/post/posts}">求职经验</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/logout}">退出</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <hr class="no-bottom"/>
+    <div id="position_content">
+        <div class="details_content">
+            <div class="job-header-content ">
+                <div class="job-header">
+                    <div class="job-name">
+                        [[${company.companyName}]]
+                    </div>
+
+                    <div class="detail container">
+                        <div class="content_l">
+                            <br class="job_detail">
+
+                <br/><h4><b>一.公司地址:</b></h4>
+                            <br>
+                    <div >
+                        [[${company.companyAddress}]]
+                    </div>
+                <br/>
+                    <br/><h4><b>二.联系方式:</b></h4>
+                    <br/>
+                    15927897347
+                    <br/>
+                    <br/><h4><b>三.公司简介</b></h4>
+                            <br>
+                    <div >
+                        [[${company.companyDescription}]]
+                    </div>
+                    <br/>
+                    <br/><h4><b>四.公司类型</b></h4>
+                            <br>
+                    <div >
+                        [[${company.companyType}]]
+                    </div>
+                    <br/>
+                            <br/><h4><b>五.营业执照</b></h4>
+                            <div >
+                                <img th:src="@{/sources/css/img/截屏2022-05-04下午1.45.26.png}">
+                            </div>
+                            <br/>
+
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+                <div class="job_publisher">
+
+                </div>
+                <div class="board">
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <button class="btn">发布</button>
+                   <ul id="ul2">
+
+                   </ul>
+                    <script>
+                        //点击发布按钮，获取文本域中的文本，给下面新创建li中的值
+                        //获取文本框元素、按钮元素
+                        var text = document.querySelector('textarea')
+                        var btn = document.querySelector('.btn')
+                        var ul = document.querySelector('ul')
+                        console.log()
+
+                        //当按下按钮后就创建新的li元素,放到ul的后面
+                        btn.onclick = function() {
+                            //创建li元素   因为是每按一次按钮，下面就会添加一个li，需要用到循环
+                            //需要判断，当文本框里面的内容为空时，按下按钮是不会添加的
+                            if (text.value != '') {
+                                var ul = document.getElementById("ul2");
+                                var li = document.createElement('li')
+                                //li里面创建一个p放内容
+                                // var p = document.createElement('p')
+                                // var dele = document.createElement('button')
+                                // ul.appendChild(li)
+                                ul.insertBefore(li, ul.children[0])
+                                //在li里面添加p
+                                // console.log(ul.children[0])
+                                // ul.children[0].appendChild(p)
+                                //在li里面添加删除按钮
+                                // ul.children[0].appendChild(dele)
+
+                                //添加节点
+                                //赋值li里面的内容
+                                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>"
+                                // dele.innerHTML = '删除'
+                                // dele.style.float = 'right'
+                                //按下按钮后，文本框里面的值要清空
+                                text.value = ''
+                                //删除元素，删除的是li,当前a链接的父亲
+                                var as = document.querySelectorAll('a')
+                                for (var i = 0; i < as.length; i++) {
+                                    as[i].onclick = function() {
+                                        //node.removeChild(child)
+                                        //  this.parentNode    li       父亲为ul
+                                        ul.removeChild(this.parentNode)
+                                    }
+                                } //这个循环操作为什么放在按钮点击事件外面就不会起作用
+
+                            }
+
+                        }
+                    </script>
+
+
+                </div>
+
+                <script>
+                    var layedit;
+                    var index;
+                    layui.use('layedit', function () {
+                        layedit = layui.layedit;
+                        index = layedit.build('review-editor', {
+                            tool: ['strong'
+                                , 'italic' //斜体
+                                , 'underline' //下划线
+                                , 'del' //删除线
+                                , '|' //分割线
+                            ],
+                            height: 200
+                        }); //建立编辑器
+                    });
+                </script>
+            </div>
+
+
+        </div>
+        </div>
+
+    </div>
+    <script th:src="@{/sources/js/position_detail.js}"></script>
+</div>
+    </div>
+</div>
+</body>
+</html>

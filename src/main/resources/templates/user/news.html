@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>就业新闻</title>
+    <link rel="stylesheet" th:href="@{/sources/css/bootstrap.min.css}"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script th:src="@{/sources/js/jquery.js}"></script>
+    <script th:src="@{/sources/js/popper.min.js}"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/sources/css/bootstrap.css}"/>
+    <script th:src="@{/sources/js/bootstrap.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/sources/css/base.css}"/>
+    <link rel="stylesheet" th:href="@{/sources/css/user-center.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/sources/icon/iconfont.css}"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/sources/css/index.css}"/>
+
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+
+        <div class="container row" id="header-vue-bind-div">
+            <a class="logo"></a>
+            <ul class="nav col-lg-8" style="text-align: center">
+                <li class="nav_li current"><a class="nav_item" th:href="@{/toIndex}">首页</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/position/searchList}">职位搜索</a></li>
+                <!--                <li class="nav_li"><a class="nav_item" th:href="@{/toNews/news}">就业新闻</a></li>-->
+                <li class="nav_li"><a class="nav_item" th:href="@{/company/searchList}">公司搜索</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/user/toEditResume}">个人信息</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/post/posts}">求职经验</a></li>
+                <li class="nav_li"><a class="nav_item" th:href="@{/logout}">退出</a></li>
+            </ul>
+
+        </div>
+        <!--script-->
+        <script>
+            var header = new Vue({
+                el: '#header-vue-bind-div',
+                data: {
+                    type: null,
+                    person: {
+                        user: null,
+                        hr: null
+                    }
+
+                }
+            });
+        </script>
+    </div>
+
+    <hr/>
+
+
+    <div class="main container" id="vue-dom">
+        <div class="page-header row">
+            <h2 class="col-lg-6 ">2022届毕业生1076万！就业形势严峻
+
+            </h2>
+        </div>
+
+
+        <div>
+            <p>发布单位：腾讯新闻</p>
+            <p>发布时间：2022-04-09</p>
+        </div>
+
+
+        </div>
+        <div>
+            <p style="text-align:left; width: 900px; margin: 0 auto">
+                据央视新闻报道，2022届高校毕业生规模预计1076万人，同比增加167万人。这是高校毕业生规模首次超千万，也是近几年增长人数最多的一年。
+
+                2022届普通高校毕业生规模、增量均创历史新高，就业形势严峻复杂，教育部等各方都在积极采取各种措施帮助大学生就业。
+
+                高校毕业生就业形势
+
+                随着大学扩招，大学毕业生人数屡创新高的趋势来看，未来的大学生就业形势依然不容乐观！
+            </p>
+
+            <br>
+            <p style="text-align:left; width: 900px; margin: 0 auto">
+                在经历了2020年-2021年的疫情，无论是国际还是国内，经济增长速度都有所放缓，这很大程度上影响了中国经济的整体情况。
+
+                在对未来市场环境预测不利的前提下，很多企业为了生存，采用“断尾”的方式求生，即采用裁员的方式来消减成本压力，缩减校招名额！
+
+                除此之外，社会对毕业生的学历要求越来越高。在应届生求职数量远大于招聘数量的情况下，企业会抬高门槛，比如抬高学历要求、学校要求，去筛选合适人选。
+
+                近十年高考形势
+
+                按照近几年的高考人数和录取人数来看，高考人数都在900万以上，录取人数基本上每年都有所上涨。从2019年高考人数突破1000万大关后，近几年的高考报名人数都在1000万以上。
+
+                到了2020年，高考录取人数967万，高考录取率首次突破90%！随着高考报名人数和高考录取率的上涨，大学毕业生人数也会越来越多！
+            </p>
+        </div>
+
+
+
+
+    </div>
+    <script th:src="@{/sources/js/user_info.js}"></script>
+</div>
+</body>
+</html>
